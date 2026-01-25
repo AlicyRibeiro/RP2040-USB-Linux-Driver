@@ -31,24 +31,16 @@ O projeto foi desenvolvido como parte da disciplina **Técnicas de Programação
 * ├── driver_linux/ # Driver USB no Linux (Kernel Space)
 * │ ├── pico_usb_driver.c
 * │ ├── Makefile
-* │ └── README.md
 * │
 * ├── app_user/ # Aplicação em Espaço de Usuário
 * │ ├── app_user.c
 * │ └── app
-* rp2040-usb-linux-driver/
-* ├── firmware_pico/ # Firmware RP2040 (TinyUSB)
-* │ ├── main.c
-* │ └── CMakeLists.txt
+* ├── docs/
+* │   ├── configuracao_inicial.md
+* │   └── demonstracao_video.md
 * │
-* ├── driver_linux/ # Driver USB no Linux (Kernel Space)
-* │ ├── pico_usb_driver.c
-* │ ├── Makefile
-* │ └── README.md
-* │
-* ├── app_user/ # Aplicação em Espaço de Usuário
-* │ ├── app_user.c
-* │ └── app
+* ├── README.md
+* └── LICENSE
 
 ---
 
