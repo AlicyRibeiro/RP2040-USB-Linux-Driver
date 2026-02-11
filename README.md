@@ -38,6 +38,7 @@ O projeto foi desenvolvido como parte da disciplina **Técnicas de Programação
 * ├── docs/
 * │   ├── configuracao_inicial.md
 * │   └── demonstracao_video.md
+* │   └── relatorio_tecnico.pdf
 * │
 * ├── README.md
 * └── LICENSE
@@ -48,10 +49,13 @@ O projeto foi desenvolvido como parte da disciplina **Técnicas de Programação
 ##  Funcionamento Geral
 
 1. O **RP2040** executa um firmware USB Vendor Class usando **TinyUSB**.
-2. O dispositivo USB é enumerado pelo Linux com **VID 0xCAFE e PID 0x4001**.
-3. O **driver Linux** reconhece o dispositivo e cria o arquivo:
+2. O dispositivo USB é enumerado pelo Linux com:
+     * **VID 0xCAFE**
+     *  **PID 0x4001**.
+4. O **driver Linux** reconhece o dispositivo
+5. O driver cria o dispositivo de caractere:
 ```
-pico_usb
+/dev/pico_usb
 ````
 
 4. A **aplicação de usuário** envia comandos via `write()` para o driver.
@@ -78,7 +82,10 @@ printf "\x01\x00" | sudo tee /dev/pico_usb
 O driver implementa:
 * Registro como USB driver
 * Criação de dispositivo de caractere
-* Operações: open, read, write
+* Operações:
+    * open
+    * read
+    * write
 
 Exemplo da função write:
 
@@ -96,8 +103,27 @@ Logs podem ser acompanhados em tempo real com:
 ````
 sudo dmesg -w
 ````
+
+Isso demonstra depuração em kernel space.
+
 ---
 
+## Firmware RP2040
+
+O firmware foi desenvolvido com:
+* Pico SDK
+* TinyUSB (Vendor Class)
+* Comunicação via endpoint Bulk
+
+
+Os comandos recebidos são armazenados em uma fila circular e processados no loop principal, garantindo:
+
+* Comunicação não bloqueante
+* Separação entre interrupção USB e lógica de aplicação
+* Temporização não bloqueante usando `absolute_time_t`
+
+
+---
 ## Aplicação de Usuário
 
 A aplicação em C permite controlar o dispositivo através de um menu interativo, utilizando chamadas de sistema padrão (`open`, `write`, `close`).
@@ -112,6 +138,27 @@ Execução:
 sudo ./app
 ````
 
+Também é possível testar diretamente pelo terminal usando printf.
+
+---
+
+## Observação Importante – Secure Boot
+
+Em alguns sistemas Linux com Secure Boot habilitado, pode não ser possível carregar módulos externos do kernel.
+
+Caso ocorra erro ao executar:
+
+````
+sudo insmod pico_usb_driver.ko
+````
+Pode ser necessário:
+  * Desativar o Secure Boot na BIOS/UEFI
+        ou
+  * Assinar digitalmente o módulo do kernel
+
+Durante o desenvolvimento deste projeto, pode ter sido necessário desativar temporariamente o Secure Boot para permitir o carregamento do driver.
+
+
 ---
 
 ## Demonstração em Vídeo
@@ -119,9 +166,33 @@ sudo ./app
 O vídeo demonstra:
 * Compilação do firmware
 * Carregamento do driver Linux
+* Upload para o RP2040
+* Carregamento do módulo do kernel
 * Criação do dispositivo `/dev/pico_usb`
 * Envio de comandos via aplicação de usuário
 * Logs do kernel com `dmesg`
+* Funcionamento do LED
+
+---
+
+## Relatório Técnico
+
+O repositório inclui um Relatório Técnico em PDF, contendo:
+
+* Introdução teórica
+* Arquitetura detalhada
+* Implementação do driver
+* Implementação do firmware
+* Aplicação de usuário
+* Testes e validação
+* Considerações sobre Secure Boot
+
+Arquivo disponível em:
+````
+
+docs/relatorio_tecnico.pdf
+````
+
 
 ---
 
@@ -155,3 +226,4 @@ Este projeto está licenciado sob a licença MIT.
 
 - [Configurações Iniciais](docs/configuracao_inicial.md)
 - [Demonstração em Vídeo](docs/demonstracao_video.md)
+- [Relatório Técnico](docs/relatorio_tecnico.pdf)
