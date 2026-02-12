@@ -37,7 +37,7 @@ O projeto foi desenvolvido como parte da disciplina **Técnicas de Programação
 * │ └── app
 * ├── docs/
 * │   ├── configuracao_inicial.md
-* │   └── demonstracao_video.md
+* │   └── demonstracao_video.mp4
 * │   └── relatorio_tecnico.pdf
 * │
 * ├── README.md
