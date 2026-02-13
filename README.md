@@ -227,6 +227,8 @@ Disciplina: TPSE II
 ## Licença
 Este projeto está licenciado sob a licença MIT.
 
+---
+
 ##  Documentação Adicional
 
 - [Configurações Iniciais](docs/configuracao_inicial.md)
