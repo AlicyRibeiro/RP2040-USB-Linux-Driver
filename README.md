@@ -1,3 +1,4 @@
+
 # RP2040 USB Linux Driver
 
 Este projeto implementa um **driver USB genérico no Linux**, utilizando uma placa **Raspberry Pi Pico (RP2040)** operando em modo **periférico USB**.
@@ -22,6 +23,7 @@ O projeto foi desenvolvido como parte da disciplina **Técnicas de Programação
 ---
 
 ##  Arquitetura do Projeto
+<<<<<<< HEAD
 
 * rp2040-usb-linux-driver/
 * ├── firmware_pico/ # Firmware RP2040 (TinyUSB)
@@ -42,6 +44,30 @@ O projeto foi desenvolvido como parte da disciplina **Técnicas de Programação
 * │
 * ├── README.md
 * └── LICENSE
+=======
+```
+
+ rp2040-usb-linux-driver/
+ ├── firmware_pico/ # Firmware RP2040 (TinyUSB)
+ │ ├── main.c
+ │ └── CMakeLists.txt
+ │
+ ├── driver_linux/ # Driver USB no Linux (Kernel Space)
+ │ ├── pico_usb_driver.c
+ │ ├── Makefile
+ │
+ ├── app_user/ # Aplicação em Espaço de Usuário
+ │ ├── app_user.c
+ │ └── app
+ ├── docs/
+ │   ├── configuracao_inicial.md
+ │   └── relatorio_tecnico.pdf
+ │
+ ├── README.md
+ └── LICENSE
+
+```
+>>>>>>> 2e7be2509add16087062c4ec542b4c490a4e9613
 
 ---
 
