@@ -176,7 +176,7 @@ O vídeo demonstra:
 * Funcionamento do LED
 
 O vídeo está disponível no link abaixo:
- - [Demonstração em Vídeo](docs/demonstracao_video.md)
+ - [Demonstração em Vídeo](https://youtu.be/_ZRAENvAqtY)
 
 ---
 
@@ -232,5 +232,5 @@ Este projeto está licenciado sob a licença MIT.
 ##  Documentação Adicional
 
 - [Configurações Iniciais](docs/configuracao_inicial.md)
-- [Demonstração em Vídeo](docs/demonstracao_video.md)
+- [Demonstração em Vídeo](https://youtu.be/_ZRAENvAqtY)
 - [Relatório Técnico](docs/relatorio_tecnico.pdf)
