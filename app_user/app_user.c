@@ -1,3 +1,26 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  app_user.c
+ *
+ *
+ *        Version:  1.0
+ *        Created:  2025
+ *       Revision:  none
+ *
+ *         Author:  Ana Alicy Ribeiro
+ *        Contact:  github.com/<AlicyRibeiro>
+ *   Organization:  Universidade Federal do Ceará - Campus Quixadá
+ *
+ *   GitHub Repo:  RP2040-USB-Linux-Driver 
+ *
+ *
+ *   Notes:
+ *   Este código foi desenvolvido exclusivamente para fins educacionais.
+ *
+ * =====================================================================================
+ */
+
 #include <stdio.h>
 #include <stdint.h>
 #include <fcntl.h>
@@ -58,7 +81,7 @@ int main(void)
             scanf("%d", &vezes);
 
             cmd[0] = CMD_LED_BLINK;
-            cmd[1] = 0x01;          // parâmetro (seu protocolo)
+            cmd[1] = 0x01;          // parâmetro 
             cmd[2] = (uint8_t)vezes;
 
             write(fd, cmd, 3);
