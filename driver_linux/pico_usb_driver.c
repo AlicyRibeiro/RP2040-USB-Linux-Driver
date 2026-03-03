@@ -1,3 +1,27 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  pico_usb_driver.c
+ *
+ *
+ *        Version:  1.0
+ *        Created:  2025
+ *       Revision:  none
+ *
+ *         Author:  Ana Alicy Ribeiro
+ *        Contact:  github.com/<AlicyRibeiro>
+ *   Organization:  Universidade Federal do Ceará - Campus Quixadá
+ *
+ *   GitHub Repo:  RP2040-USB-Linux-Driver 
+ *
+ *
+ *   Notes:
+ *   Este código foi desenvolvido exclusivamente para fins educacionais.
+ *
+ * =====================================================================================
+ */
+
+
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/usb.h>
